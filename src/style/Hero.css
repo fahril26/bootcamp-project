@@ -1,0 +1,103 @@
+.jumbotron {
+  height: 100vh;
+  color: #fff;
+  background: url(../assets/hero.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+/* 
+.jumbotron::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -99;
+} */
+
+.jumbotron span {
+  color: orange;
+}
+
+.jumbotron h1 {
+  font-size: 3.4rem;
+}
+
+.content {
+  margin-top: 150px;
+}
+
+.btn-wrap button {
+  width: 150px;
+  height: 45px;
+}
+
+.btn-wrap button {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.btn-wrap button:nth-child(1) {
+  color: #242323;
+}
+
+.btn-wrap button:nth-child(1):hover {
+  background-color: inherit;
+  color: orange;
+  transition: 0.4s;
+}
+
+.btn-wrap button:nth-child(2):hover {
+  background-color: #ffc107;
+  color: #242323;
+  transition: 0.4s;
+}
+
+.anim1 {
+  animation: anim1 1s forwards;
+}
+
+.anim2 {
+  animation: anim2 0.8s forwards;
+}
+
+.anim3 {
+  animation: anim3 0.8s forwards;
+}
+
+@keyframes anim1 {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes anim2 {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes anim3 {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}

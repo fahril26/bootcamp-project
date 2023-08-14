@@ -1,0 +1,195 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.swiper-pagination {
+  position: static;
+  transform: translateX(43%);
+  text-align: start;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: orange !important;
+  transition: 0.3s;
+  width: 40px;
+  border-radius: 5px;
+}
+
+.swiper-pagination-bullet-custom {
+  width: var(
+    --swiper-pagination-bullet-width,
+    var(--swiper-pagination-bullet-size, 8px)
+  );
+  height: var(
+    --swiper-pagination-bullet-height,
+    var(--swiper-pagination-bullet-size, 8px)
+  );
+  display: inline-block;
+  border-radius: var(--swiper-pagination-bullet-border-radius, 50%);
+  background: var(--swiper-pagination-bullet-inactive-color, #000);
+  opacity: var(--swiper-pagination-bullet-inactive-opacity, 0.2);
+}
+
+/* Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Kanit:ital@1&family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,700&display=swap");
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+@media (max-width: 1200px) {
+  .benefit .card span {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .course .container {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .course .container {
+    max-width: 80%;
+  }
+
+  .swiper-slide {
+    text-align: start !important;
+  }
+  /* 
+  .swiper {
+    width: 80% !important;
+  } */
+}
+
+@media (max-width: 540px) {
+  .jumbotron {
+    padding: 0 20px;
+  }
+
+  .cards {
+    width: 90%;
+  }
+}

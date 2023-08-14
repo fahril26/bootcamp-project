@@ -1,0 +1,9 @@
+header span {
+  color: orange;
+}
+
+header h3 {
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.5);
+}
