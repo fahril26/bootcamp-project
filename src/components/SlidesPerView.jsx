@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -7,21 +8,18 @@ import "swiper/css/pagination";
 import "../style/SlidesPerView.css";
 
 // import required modules
-import { Pagination, Autoplay, Navigation, Virtual } from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules";
 import { useEffect, useState } from "react";
 import CustomPagination from "./CustomPagination";
 
-export default function SlidesPerView(slides) {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+// eslint-disable-next-line react/prop-types
+export default function SlidesPerView({ slides, windowWidth, moduleActive }) {
   const [swiperRef, setSwiperRef] = useState(null);
   const [cloneSlides, setClonseSlides] = useState(false);
   const [initialtIndex, setInitalIndex] = useState(0);
   const [lastIndex, setLastIndex] = useState(3);
   const [paginationActive, setPaginationActive] = useState([true, false]);
-  const [virtualSlides, setVirtualSlides] = useState([
-    ...slides.slides,
-    ...slides.slides,
-  ]);
+  const [virtualSlides, setVirtualSlides] = useState([...slides, ...slides]);
 
   const breakpoints = {
     0: {
@@ -76,23 +74,12 @@ export default function SlidesPerView(slides) {
     setPaginationActive(newPaginationActive);
   };
 
-  const resizeWindow = () => {
-    setWindowWidth(window.innerWidth);
-  };
-
   const slideTo = (index) => {
     swiperRef.slideTo(index);
   };
 
   useEffect(() => {
-    window.addEventListener("resize", resizeWindow);
-
-    return () => window.removeEventListener("resize", resizeWindow);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  useEffect(() => {
-    setVirtualSlides([...virtualSlides, ...slides.slides]);
+    setVirtualSlides([...virtualSlides, ...slides]);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cloneSlides]);
 
@@ -100,13 +87,13 @@ export default function SlidesPerView(slides) {
     <>
       <Swiper
         autoplay={{ delay: 6000, disableOnInteraction: false }}
-        modules={[Pagination, Autoplay, Navigation, Virtual]}
+        modules={[Pagination, Autoplay]}
         breakpoints={breakpoints}
-        pagination={windowWidth < 600 && { clickable: true }}
         onSlideChange={handleSlideChange}
         className="mySwiper"
         onSwiper={setSwiperRef}
-        loop={windowWidth < 600}
+        loop={moduleActive < 600}
+        pagination={moduleActive && { clickable: true }}
         speed={700}
       >
         {windowWidth >= 768
@@ -115,7 +102,7 @@ export default function SlidesPerView(slides) {
                 {slide}
               </SwiperSlide>
             ))
-          : slides.slides.map((slide, index) => (
+          : slides.map((slide, index) => (
               <SwiperSlide key={index} virtualIndex={index}>
                 {slide}
               </SwiperSlide>

@@ -1,0 +1,32 @@
+.gallery {
+  box-sizing: border-box;
+}
+
+.gallery .row {
+  padding: 0 4px;
+}
+
+.gallery .column {
+  flex: 25%;
+  max-width: 33.3%;
+  padding: 0 4px;
+}
+
+.gallery .column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+  cursor: pointer;
+  filter: grayscale(0.5);
+}
+
+.gallery .column img:hover {
+  transform: scale(1.02);
+  transition: 0.3s;
+  filter: none;
+}
+
+.gallery .column img:not(hover) {
+  transform: scale(1);
+  transition: 0.3s;
+}

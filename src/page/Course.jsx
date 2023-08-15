@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import Header from "../components/Header";
 import SlidesPerView from "../components/SlidesPerView";
 import FrontEnd from "../assets/course/frontend.jpg";
@@ -8,7 +9,7 @@ import UiUx from "../assets/course/uiux.jpg";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
-const Course = () => {
+const Course = ({ windowWidth, moduleActive }) => {
   const datas = [
     { img: FrontEnd, title: "Front End" },
     { img: BackEnd, title: "Back End" },
@@ -38,7 +39,11 @@ const Course = () => {
           </Header>
         </div>
 
-        <SlidesPerView slides={slides}></SlidesPerView>
+        <SlidesPerView
+          slides={slides}
+          windowWidth={windowWidth}
+          moduleActive={moduleActive}
+        ></SlidesPerView>
       </div>
     </section>
   );
