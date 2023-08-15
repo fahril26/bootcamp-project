@@ -17,7 +17,7 @@ import SlidesPerView from "../components/SlidesPerView";
 const Gallery = ({ windowWidth, moduleActive }) => {
   const description = ` Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo architecto nesciunt cupiditate ipsum, nulla mollitia!`;
 
-  const listImg = [Img5, Img4, Img1, Img8, Img3, Img6];
+  const listImg = [Img5, Img4, Img6, Img1, Img8, Img3];
   const imgElements = listImg.map((img, index) => (
     <img
       src={img}

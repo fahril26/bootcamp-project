@@ -11,6 +11,7 @@ export default function AppRouter() {
 
   const addModule = () => {
     if (windowWidth < 600) setModuleActive(true);
+    else setModuleActive(false);
   };
 
   const resizeWindow = () => {
@@ -19,10 +20,14 @@ export default function AppRouter() {
 
   useEffect(() => {
     window.addEventListener("resize", resizeWindow);
-    addModule();
+
     return () => window.removeEventListener("resize", resizeWindow);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [moduleActive]);
+
+  useEffect(() => {
+    addModule();
+  }, [windowWidth]);
 
   return (
     <>
