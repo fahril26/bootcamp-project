@@ -1,17 +1,20 @@
-import Hero from "../page/Hero";
-import About from "../page/About";
-import Benefit from "../page/Benefit";
-import Course from "../page/Course";
-import Gallery from "../page/Gallery";
+import Hero from "../section/Hero";
+import About from "../section/About";
+import Benefit from "../section/Benefit";
+import Course from "../section/Course";
+import Gallery from "../section/Gallery";
+import Blog from "../section/Blog";
 import { useEffect, useState } from "react";
+import NewsLetter from "../section/NewsLetter";
+import Contact from "../section/Contact";
 
 export default function AppRouter() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [moduleActive, setModuleActive] = useState(false);
 
-  const addModule = () => {
-    if (windowWidth < 600) setModuleActive(true);
-    else setModuleActive(false);
+  // add module on Slides Component
+  const addModule = (width) => {
+    width < 600 ? setModuleActive(true) : setModuleActive(false);
   };
 
   const resizeWindow = () => {
@@ -23,10 +26,10 @@ export default function AppRouter() {
 
     return () => window.removeEventListener("resize", resizeWindow);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [moduleActive]);
+  }, []);
 
   useEffect(() => {
-    addModule();
+    addModule(windowWidth);
   }, [windowWidth]);
 
   return (
@@ -36,6 +39,9 @@ export default function AppRouter() {
       <Benefit />
       <Course windowWidth={windowWidth} moduleActive={moduleActive} />
       <Gallery windowWidth={windowWidth} moduleActive={moduleActive} />
+      <Blog windowWidth={windowWidth} moduleActive={moduleActive} />
+      <NewsLetter />
+      <Contact />
     </>
   );
 }

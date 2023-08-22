@@ -5,7 +5,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-import "../style/SlidesPerView.css";
 
 // import required modules
 import { Pagination, Autoplay } from "swiper/modules";
@@ -41,7 +40,7 @@ export default function SlidesPerView({ slides, windowWidth, moduleActive }) {
     let newInitialIndex = initialtIndex;
     let newLastIndex = lastIndex;
 
-    if (windowWidth >= 700) {
+    if (windowWidth >= 600) {
       if (swiperRef.realIndex % 4 == 0) {
         setClonseSlides(!cloneSlides);
 
@@ -92,11 +91,11 @@ export default function SlidesPerView({ slides, windowWidth, moduleActive }) {
         onSlideChange={handleSlideChange}
         className="mySwiper"
         onSwiper={setSwiperRef}
-        loop={moduleActive < 600}
+        loop={moduleActive}
         pagination={moduleActive && { clickable: true }}
         speed={700}
       >
-        {windowWidth >= 768
+        {windowWidth >= 600
           ? virtualSlides.map((slide, index) => (
               <SwiperSlide key={index} virtualIndex={index}>
                 {slide}

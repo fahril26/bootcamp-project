@@ -1,21 +1,12 @@
 .jumbotron {
   height: 100vh;
-  color: #fff;
-  background: url(../assets/hero.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: rgb(75, 8, 109);
+  background: linear-gradient(
+    135deg,
+    rgba(75, 8, 109, 1) 0%,
+    rgba(172, 192, 254, 1) 100%
+  );
 }
-/* 
-.jumbotron::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -99;
-} */
 
 .jumbotron span {
   color: orange;
@@ -25,8 +16,9 @@
   font-size: 3.4rem;
 }
 
-.content {
-  margin-top: 150px;
+.jumbotron .row {
+  align-items: center;
+  min-height: 80vh;
 }
 
 .btn-wrap button {
@@ -80,7 +72,6 @@
 
 @keyframes anim2 {
   from {
-    opacity: 0;
     transform: translateX(-50px);
   }
 

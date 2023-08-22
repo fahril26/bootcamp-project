@@ -17,7 +17,7 @@ const About = () => {
 
   const Cards = cardList.map((data) => (
     <div className="col mb-4 d-flex justify-content-center" key={data.title}>
-      <Card className="cards" key={data.title}>
+      <Card key={data.title}>
         <Card.Body>
           <img
             src={data.img}

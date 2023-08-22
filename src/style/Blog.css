@@ -1,0 +1,16 @@
+.blog .card a::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background-color: orange;
+}
+
+.blog .card a:hover::after {
+  width: 24%;
+  transition: 0.4s;
+}
+
+.blog .card a:not(:hover):after {
+  transition: 0.4s;
+}

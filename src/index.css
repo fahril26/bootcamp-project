@@ -158,33 +158,52 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+.swiper-pagination {
+  margin-top: 0.8rem;
+}
+
 @media (max-width: 1200px) {
+  html {
+    font-size: 90%;
+  }
   .benefit .card span {
     font-size: 1rem;
   }
 }
 
 @media (max-width: 992px) {
-  .course .container {
+  html {
+    font-size: 80%;
+  }
+  .course .container,
+  .blog .container {
     max-width: 100%;
+  }
+
+  .half {
+    width: 100% !important;
   }
 }
 
 @media (max-width: 768px) {
-  .course .container {
-    max-width: 80%;
+  html {
+    font-size: 75%;
+  }
+
+  .jumbotron .logo {
+    display: none;
   }
 
   .swiper-slide {
     text-align: start !important;
   }
-  /* 
-  .swiper {
-    width: 80% !important;
-  } */
 }
 
 @media (max-width: 540px) {
+  html {
+    font-size: 80%;
+  }
+
   .jumbotron {
     padding: 0 20px;
   }

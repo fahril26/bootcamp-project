@@ -1,0 +1,40 @@
+.contact form,
+.contact-info .row {
+  padding: 10px;
+}
+
+.contact form .col-12 {
+  padding: 0;
+}
+
+.contact form input,
+.contact form textarea {
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 10px;
+  border-left: 2px solid orange !important;
+  border: 1.5px solid #4444;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.half {
+  width: 48% !important;
+}
+
+.icon {
+  background-color: orange;
+  font-size: 1.5rem;
+  padding: 5px 0;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.info {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
