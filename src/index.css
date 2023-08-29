@@ -166,6 +166,7 @@ body {
   html {
     font-size: 90%;
   }
+
   .benefit .card span {
     font-size: 1rem;
   }
@@ -183,11 +184,23 @@ body {
   .half {
     width: 100% !important;
   }
+
+  .contact .form {
+    margin-top: 50px;
+  }
+
+  .accordion {
+    width: 90% !important;
+  }
 }
 
 @media (max-width: 768px) {
   html {
     font-size: 75%;
+  }
+
+  nav {
+    padding: 0 3% !important;
   }
 
   .jumbotron .logo {
@@ -203,12 +216,24 @@ body {
   html {
     font-size: 80%;
   }
+  nav {
+    padding: 0 1% !important;
+  }
 
   .jumbotron {
-    padding: 0 20px;
+    padding: 0 10px;
   }
 
   .cards {
     width: 90%;
+  }
+
+  .new-letter {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+
+  .new-letter .row {
+    width: 100% !important;
   }
 }

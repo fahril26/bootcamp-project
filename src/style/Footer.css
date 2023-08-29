@@ -1,0 +1,57 @@
+footer {
+  background-color: #065c97 !important;
+  color: #fff;
+}
+
+footer .container {
+  opacity: 0;
+}
+
+footer .container.show {
+  opacity: 1;
+  transition: 1s ease-out;
+}
+
+footer h5 {
+  font-size: 1.5rem;
+}
+
+.social-media {
+  display: flex;
+  justify-content: center;
+}
+
+.social-media .icons {
+  width: 30px;
+  height: 30px;
+  background-color: orange;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.icons a {
+  color: #fff;
+  font-size: 15px;
+}
+
+footer .social-media .icons:hover {
+  background-color: #fff;
+  color: blue;
+  transition: 0.5s;
+}
+
+footer .social-media .icons:hover a {
+  color: blue;
+  transition: 0.5s;
+}
+
+footer .social-media .icons:not(:hover) {
+  transition: 0.5s;
+}
+
+footer .social-media .icons:not(:hover) a {
+  transition: 0.5s;
+}

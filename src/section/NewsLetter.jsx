@@ -1,5 +1,8 @@
-import { useEffect, useState } from "react";
+/* eslint-disable react-refresh/only-export-components */
+import { memo, useContext, useEffect, useState } from "react";
 import "../style/NewLetter.css";
+import useScroll from "../hook/useScroll";
+import { ResizeWindowContext } from "../context/WindowWidthContext";
 
 const NewsLetter = () => {
   const [isShowMessage, setisShowMessage] = useState(false);
@@ -7,6 +10,9 @@ const NewsLetter = () => {
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState("error");
   const [classStyle, setClassStyle] = useState("");
+  const initialValues = { threShold: 4450 };
+  const [isValiable, setCurrentValue] = useScroll(initialValues);
+  const windowWidth = useContext(ResizeWindowContext);
 
   const handleChange = (e) => {
     setValue(e.target.value);
@@ -41,7 +47,7 @@ const NewsLetter = () => {
     }
   };
 
-  const handleStatus = () => {
+  const handleTextStatus = () => {
     switch (status) {
       case "error":
         // code block
@@ -57,7 +63,7 @@ const NewsLetter = () => {
     }
   };
 
-  const handleSend = () => {
+  const hanleSending = () => {
     if (status === "pending") return;
 
     let timeOutSuccess = null;
@@ -83,8 +89,15 @@ const NewsLetter = () => {
     return () => clearTimeout(timeOutSuccess);
   };
 
+  const handleChangeInitialValueScroll = (width) => {
+    if (width < 992 && width > 768) setCurrentValue({ threShold: 4100 });
+    else if (width < 768 && width > 540) setCurrentValue({ threShold: 4270 });
+
+    if (width < 540) setCurrentValue({ threShold: 4735 });
+  };
+
   useEffect(() => {
-    handleStatus();
+    handleTextStatus();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value, status]);
 
@@ -93,11 +106,20 @@ const NewsLetter = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
 
+  useEffect(() => {
+    handleChangeInitialValueScroll(windowWidth);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [windowWidth]);
+
   return (
     <>
       <section id="new-letter" className="new-letter">
         <div className="container">
-          <div className="row align-items-center text-center">
+          <div
+            className={`row align-items-center text-center content ${
+              isValiable ? "show" : ""
+            }`}
+          >
             <div className="col-lg-6 col-12">
               <span>Subcribe Today For Newletter</span>
             </div>
@@ -112,8 +134,8 @@ const NewsLetter = () => {
                     value={value}
                   />
                 </div>
-                <div className="col-1" onClick={handleSend}>
-                  <button className="new-letter-icon" onClick={handleSend}>
+                <div className="col-1">
+                  <button className="new-letter-icon" onClick={hanleSending}>
                     <i className="bi bi-envelope"></i>
                   </button>
                 </div>
@@ -144,4 +166,4 @@ const NewsLetter = () => {
   );
 };
 
-export default NewsLetter;
+export default memo(NewsLetter);

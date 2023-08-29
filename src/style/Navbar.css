@@ -1,5 +1,11 @@
 nav {
   background: transparent !important;
+  padding: 0 6.8rem !important;
+  transition: 0.5s;
+  animation: static 0.4s ease-out;
+  position: fixed !important;
+  left: 0;
+  right: 0;
 }
 
 a.navbar-brand,
@@ -11,11 +17,28 @@ a.navbar-brand,
   color: orange !important;
 }
 
-nav a {
-  color: #fff !important;
+nav a.nav-link {
+  color: #fff;
 }
 
-.active {
+nav a.nav-link::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background-color: orange;
+}
+
+nav a.nav-link:hover {
+  color: orange;
+}
+
+nav a.nav-link:hover::after {
+  width: 100%;
+  transition: 0.3s ease-in;
+}
+
+nav a.active {
   color: orange !important;
 }
 
@@ -31,4 +54,26 @@ nav .form-control:focus {
 
 .navbar-toggler:focus {
   box-shadow: 0 0 0 var(--bs-navbar-toggler-focus-width) orange !important;
+}
+
+nav.on-scroll {
+  z-index: 999;
+  transform: translateY(-50px);
+  animation: onScroll 0.5s forwards;
+}
+
+@keyframes static {
+  from {
+    transform: translateY(-30px);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes onScroll {
+  to {
+    transform: translateY(0);
+  }
 }

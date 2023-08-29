@@ -69,3 +69,12 @@
 .new-letter .message i {
   font-size: 1.3rem;
 }
+
+.new-letter .content {
+  opacity: 0;
+}
+
+.new-letter .content.show {
+  opacity: 1;
+  transition: 0.8s;
+}

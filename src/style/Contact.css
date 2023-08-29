@@ -3,6 +3,10 @@
   padding: 10px;
 }
 
+.contact form {
+  width: 100%;
+}
+
 .contact form .col-12 {
   padding: 0;
 }
@@ -21,6 +25,7 @@
 
 .half {
   width: 48% !important;
+  padding: 0 !important;
 }
 
 .icon {
@@ -37,4 +42,25 @@
 .info {
   font-size: 1.2rem;
   font-weight: 500;
+}
+
+.contact form .row {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.contact form .half {
+  position: relative;
+}
+
+.error {
+  color: red;
+  font-size: 0.7rem;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.contact form button {
+  width: 25%;
 }

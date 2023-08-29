@@ -3,8 +3,13 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
+import useScroll from "../hook/useScroll";
+
+const initialValues = { threShold: 50, theBeginning: true };
 
 function OffCanvasExample() {
+  const [isValiable] = useScroll(initialValues);
+
   const navList = [
     { title: "Home", link: "#home" },
     { title: "About", link: "#about" },
@@ -22,7 +27,11 @@ function OffCanvasExample() {
 
   return (
     <>
-      <Navbar expand="lg" className="container mb-3">
+      <Navbar
+        expand="lg"
+        className={`container-fluid ${isValiable ? "on-scroll" : ""}`}
+        bg={isValiable && "dark"}
+      >
         <Container fluid>
           <Navbar.Brand href="#">Bootcamp</Navbar.Brand>
           <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-lg`} />

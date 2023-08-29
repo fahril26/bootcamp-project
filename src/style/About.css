@@ -1,3 +1,7 @@
+.about .card-wrapper {
+  opacity: 0;
+}
+
 .about .card-title {
   font-weight: bold;
   color: #222;
@@ -30,4 +34,17 @@
 
 .about .card-link:hover::after {
   width: 35%;
+}
+
+.about .card-wrapper.show {
+  animation: showCard 0.5s forwards;
+}
+
+@keyframes showCard {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

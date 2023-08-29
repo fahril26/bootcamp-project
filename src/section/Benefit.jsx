@@ -1,12 +1,38 @@
+/* eslint-disable react-refresh/only-export-components */
 import CrossFade from "../components/CrossFade";
 import "../style/Benefit.css";
+import useScroll from "../hook/useScroll";
+import { useEffect } from "react";
 
-const Benefit = () => {
+// eslint-disable-next-line react/prop-types
+const Benefit = ({ windowWidth }) => {
+  const initialValues = {
+    threShold: 850,
+  };
+
+  const [isValiable, setCurrentValue] = useScroll(initialValues);
+
+  const handleChangeInitialValueScroll = (width) => {
+    if (width < 992 && width > 768) setCurrentValue({ threShold: 1000 });
+    else if (width < 768 && width > 540) setCurrentValue({ threShold: 1600 });
+
+    if (width < 540) setCurrentValue({ threShold: 1750 });
+  };
+
+  useEffect(() => {
+    handleChangeInitialValueScroll(windowWidth);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [windowWidth]);
+
   return (
     <section id="benefit" className="benefit ">
       <div className="container">
         <div className="row">
-          <div className="col-12 col-lg-6 mb-5">
+          <div
+            className={`col-12 col-lg-6 mb-5 benefit-content ${
+              isValiable ? "show" : ""
+            }`}
+          >
             <div className="row">
               <div className="col-12 col-md-11 header">
                 <h3>

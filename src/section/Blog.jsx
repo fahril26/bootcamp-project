@@ -6,13 +6,18 @@ import Img3 from "../assets/blog/3.jpg";
 import Img4 from "../assets/blog/4.jpg";
 import { Card } from "react-bootstrap";
 import SlidesPerView from "../components/SlidesPerView";
+import useScroll from "../hook/useScroll";
 
 import "../style/Blog.css";
+import { useEffect } from "react";
+const description =
+  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa eos esse earum molestiae laboriosam voluptates.";
 
 // eslint-disable-next-line react/prop-types
 const Blog = ({ windowWidth, moduleActive }) => {
-  const description =
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa eos esse earum molestiae laboriosam voluptates.";
+  const initialValues = { threShold: 3500 };
+
+  const [isValiable, setCurrentValue] = useScroll(initialValues);
 
   const styleCardHeader = {
     background: "inherit",
@@ -59,10 +64,22 @@ const Blog = ({ windowWidth, moduleActive }) => {
     </Card>
   ));
 
+  const handleChangeInitialValueScroll = (width) => {
+    if (width < 992 && width > 768) setCurrentValue({ threShold: 3350 });
+    else if (width < 768 && width > 540) setCurrentValue({ threShold: 3565 });
+
+    if (width < 540) setCurrentValue({ threShold: 3800 });
+  };
+
+  useEffect(() => {
+    handleChangeInitialValueScroll(windowWidth);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [windowWidth]);
+
   return (
-    <section id="blog" className="blog">
+    <section id="blog" className="blog bg-body-secondary pt-5 pb-5">
       <div className="container">
-        <Header description={description}>
+        <Header description={description} className={isValiable ? "show" : ""}>
           Recent <span>News</span>
         </Header>
 

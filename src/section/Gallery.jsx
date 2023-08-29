@@ -13,9 +13,14 @@ import Img7 from "../assets/gallery/thumbs/7.jpg";
 import Img8 from "../assets/gallery/thumbs/9.jpg";
 import Img9 from "../assets/gallery/thumbs/11.jpg";
 import SlidesPerView from "../components/SlidesPerView";
+import useScroll from "../hook/useScroll";
+import { useEffect } from "react";
+
+const description = ` Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo architecto nesciunt cupiditate ipsum, nulla mollitia!`;
 
 const Gallery = ({ windowWidth, moduleActive }) => {
-  const description = ` Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo architecto nesciunt cupiditate ipsum, nulla mollitia!`;
+  const initialValues = { threShold: 2100 };
+  const [isValiable, setCurrentValue] = useScroll(initialValues);
 
   const listImg = [Img5, Img4, Img6, Img1, Img8, Img3];
   const imgElements = listImg.map((img, index) => (
@@ -27,10 +32,22 @@ const Gallery = ({ windowWidth, moduleActive }) => {
     />
   ));
 
+  const handleChangeInitialValueScroll = (width) => {
+    if (width < 992 && width > 768) setCurrentValue({ threShold: 2400 });
+    else if (width < 768 && width > 540) setCurrentValue({ threShold: 2825 });
+
+    if (width < 540) setCurrentValue({ threShold: 3125 });
+  };
+
+  useEffect(() => {
+    handleChangeInitialValueScroll(windowWidth);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [windowWidth]);
+
   return (
     <section id="gallery" className="gallery pb-5 pt-5">
       <div className="container">
-        <Header description={description}>
+        <Header description={description} className={isValiable ? "show" : ""}>
           Our <span>Gallery</span>
         </Header>
 

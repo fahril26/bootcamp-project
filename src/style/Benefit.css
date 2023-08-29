@@ -13,6 +13,15 @@
   color: orange;
 }
 
+.benefit-content {
+  opacity: 0;
+}
+
+.benefit-content.show {
+  opacity: 1;
+  transition: 0.7s ease-in;
+}
+
 .benefit .card {
   padding: 0.2rem 0.6rem;
   font-size: 1.2rem;

@@ -1,0 +1,18 @@
+.accordion {
+  width: 70% !important;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: orange !important;
+}
+
+.accordion-button:focus {
+  z-index: 3;
+  border-color: none !important;
+  outline: 0;
+  box-shadow: none !important;
+}
+
+.accordion-button {
+  font-weight: bold;
+}

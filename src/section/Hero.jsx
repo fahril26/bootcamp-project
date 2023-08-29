@@ -1,7 +1,9 @@
+/* eslint-disable react-refresh/only-export-components */
 import { Button } from "react-bootstrap";
 import Navbar from "../components/Navbar";
 import "../style/Hero.css";
 import Logo from "../assets/hero/logo1.png";
+import { memo } from "react";
 
 const Hero = () => {
   return (
@@ -34,4 +36,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default memo(Hero);
