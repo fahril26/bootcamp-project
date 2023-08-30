@@ -162,6 +162,10 @@ body {
   margin-top: 0.8rem;
 }
 
+.swiper-pagination:not(.custom) {
+  margin-left: -20px;
+}
+
 @media (max-width: 1200px) {
   html {
     font-size: 90%;

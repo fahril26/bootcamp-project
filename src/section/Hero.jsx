@@ -16,7 +16,7 @@ const Hero = () => {
               <div className="col-lg-8 col-md-7 col-12 text-light">
                 <h4 className="anim1">We Will Teach You How To Learn</h4>
                 <h1 className="anim2">
-                  BEST SCHOOL & ANYTHING TO <span>LEARN</span> SMART WAY
+                  BEST BOOTCAMP & ANYTHING TO <span>LEARN</span> PROGRAMMING
                 </h1>
                 <p className="lead">Learning & Course etc.</p>
 

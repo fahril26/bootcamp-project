@@ -108,7 +108,7 @@ export default function SlidesPerView({ slides, windowWidth, moduleActive }) {
             ))}
 
         {windowWidth >= 600 && (
-          <div className="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal">
+          <div className="swiper-pagination custom swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal">
             <CustomPagination
               classActive={paginationActive[0]}
               slideTo={() => slideTo(initialtIndex)}

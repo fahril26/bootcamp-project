@@ -14,8 +14,6 @@ const useScroll = (initialValues) => {
     }
 
     if (window.scrollY >= threShold) setIsVisible(true);
-
-    console.log(window.scrollY);
   };
 
   useEffect(() => {
