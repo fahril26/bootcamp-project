@@ -163,7 +163,7 @@ body {
 }
 
 .swiper-pagination:not(.custom) {
-  margin-left: -10px;
+  margin-left: -18px;
 }
 
 @media (max-width: 1200px) {
